@@ -30,10 +30,19 @@
 export default {
     props:["goBack",'signinUp', 'headTitle'],
     mounted(){
-        console.log(mapActions)
+     //获取用户信息
+           this.getUserInfo();
+        //     console.log(this)
     },
     computed:{
-
+        ...mapState([
+            "userInfo"
+        ])
+    },
+    methods:{
+         ...mapActions([
+                'getUserInfo'
+            ]),
     }
     
     

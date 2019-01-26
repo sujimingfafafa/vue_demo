@@ -2,7 +2,7 @@ import App from '../App'
 
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
-
+const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'miste')
 
 export default [{
     path: '/',
@@ -22,6 +22,12 @@ export default [{
         {
             path: '/city/:cityid',
             component: city
+        },
+        // 搜索列表中的地址、
+        {
+            path: '/msite',
+            component: msite,
+            meta: { keepAlive: true },
         },
    
     ]
