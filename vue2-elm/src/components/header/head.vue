@@ -1,14 +1,13 @@
 <template>
-    <div id="head_top">
-        <slot name="logo"></slot>
-         <slot name='search'></slot>
-         <!-- @click="$router.go(-1)" 为返回上一级 -->
-          <section class="head_goback" v-if="goBack"  @click="$router.go(-1)">
+    <header id='head_top'>
+        <slot name='logo'></slot>
+        <slot name='search'></slot>
+        <section class="head_goback" v-if="goBack" @click="$router.go(-1)">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <polyline points="12,18 4,9 12,0" style="fill:none;stroke:rgb(255,255,255);stroke-width:2"/>
             </svg>
         </section>
-         <router-link :to="userInfo? '/profile':'/login'" v-if='signinUp' class="head_login">
+        <router-link :to="userInfo? '/profile':'/login'" v-if='signinUp' class="head_login">
             <svg class="user_avatar" v-if="userInfo">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use>
             </svg>
@@ -21,32 +20,38 @@
         <slot name="msite-title"></slot>
         <slot name="changecity"></slot>
         <slot name="changeLogin"></slot>
-        
-    </div>
+    </header>
 </template>
 
 <script>
- import {mapState, mapActions} from 'vuex'
-export default {
-    props:["goBack",'signinUp', 'headTitle'],
-    mounted(){
-     //获取用户信息
-           this.getUserInfo();
-        //     console.log(this)
-    },
-    computed:{
-        ...mapState([
-            "userInfo"
-        ])
-    },
-    methods:{
-         ...mapActions([
+    import {mapState, mapActions} from 'vuex'
+    export default {
+    	data(){
+            return{
+
+            }
+        },
+         props: ['signinUp', 'headTitle', 'goBack'],
+        mounted(){
+            console.log(this)
+            //获取用户信息
+            this.getUserInfo();
+          
+        },
+       
+        computed: {
+            ...mapState([
+                'userInfo'
+            ]),
+        },
+        methods: {
+            ...mapActions([
                 'getUserInfo'
             ]),
+        },
+
     }
-    
-    
-}
+
 </script>
 
 <style lang="scss" scoped>
@@ -58,10 +63,7 @@ export default {
         z-index: 100;
         left: 0;
         top: 0;
-        display: flex;
-        justify-content: space-between;
         @include wh(100%, 1.95rem);
-      
     }
     .head_goback{
         left: 0.4rem;

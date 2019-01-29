@@ -35,9 +35,9 @@
 	    		</svg>
 	    		<span class="shop_header_title">附近商家</span>
 	    	</header>
-	    	<!-- <shop-list v-if="hasGetData" :geohash="geohash"></shop-list> -->
+	    	<shop-list v-if="hasGetData" :geohash="geohash"></shop-list>
     	</div>
-    	<!-- <foot-guide></foot-guide> -->
+    	<foot-guide></foot-guide>
     </div>    
 </template>
 
@@ -45,8 +45,8 @@
 import {mapMutations} from 'vuex'
 
 import headTop from 'src/components/header/head'
-// import footGuide from 'src/components/footer/footGuide'
-// import shopList from 'src/components/common/shoplist'
+import footGuide from 'src/components/footer/footGuide'
+import shopList from 'src/components/common/shoplist'
 import {msiteAddress, msiteFoodTypes, cityGuess} from 'src/service/getData'
 import 'src/plugins/swiper.min.js'
 import 'src/style/swiper.min.css'
@@ -99,8 +99,8 @@ export default {
     },
     components: {
     	headTop,
-    	// shopList,
-    	// footGuide,
+    	shopList,
+    	footGuide,
     },
     computed: {
 

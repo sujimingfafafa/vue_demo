@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './router/router'
-
-// import {routerMode} from './config/env'
+import store from './store/'
+import {routerMode} from './config/env'
 import './config/rem'
 import FastClick from 'fastclick'
 
@@ -15,8 +15,8 @@ if ('addEventListener' in document) {
 Vue.use(VueRouter)
 const router = new VueRouter({
 	routes,
-	// mode: routerMode,
-	// strict: process.env.NODE_ENV !== 'production',
+	mode: routerMode,
+	strict: process.env.NODE_ENV !== 'production',
 	scrollBehavior (to, from, savedPosition) {
 	    if (savedPosition) {
 		    return savedPosition
@@ -31,6 +31,6 @@ const router = new VueRouter({
 
 new Vue({
 	router,
-
+	store
 }).$mount('#app')
 
