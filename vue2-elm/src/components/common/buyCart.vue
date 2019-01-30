@@ -11,10 +11,9 @@
             <transition name="fade">
                 <span class="cart_num" v-if="foodNum">{{foodNum}}</span>
             </transition>
-            <span class="add_icon"  @click="addToCart(foods.category_id, foods.item_id, foods.specfoods[0].food_id, foods.specfoods[0].name, foods.specfoods[0].price, '', foods.specfoods[0].packing_fee, foods.specfoods[0].sku_id, foods.specfoods[0].stock, $event)">+</span>
-            <!-- <svg class="add_icon">
+            <svg class="add_icon" @click="addToCart(foods.category_id, foods.item_id, foods.specfoods[0].food_id, foods.specfoods[0].name, foods.specfoods[0].price, '', foods.specfoods[0].packing_fee, foods.specfoods[0].sku_id, foods.specfoods[0].stock, $event)">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-add"></use>
-            </svg> -->
+            </svg>
         </section>
         <section v-else class="choose_specification">
             <section class="choose_icon_container">
@@ -57,7 +56,6 @@
             foodNum: function (){
                 let category_id = this.foods.category_id;
                 let item_id = this.foods.item_id;
-              
                 if (this.shopCart&&this.shopCart[category_id]&&this.shopCart[category_id][item_id]) {
                     let num = 0;
                     Object.values(this.shopCart[category_id][item_id]).forEach((item,index) => {
@@ -87,6 +85,7 @@
                 let elBottom = event.target.getBoundingClientRect().bottom;
                 this.showMoveDot.push(true);
                 this.$emit('showMoveDot', this.showMoveDot, elLeft, elBottom);
+                console.log(123333)
 
             },
             //显示规格列表
@@ -106,12 +105,8 @@
     @import '../../style/mixin';
 	.cart_module{
         .add_icon{
-            width:1rem;
-            height:1rem;
             position: relative;
             z-index: 999;
-            background: #3190e8;
-            color: #fff;
         }
         .cart_button{
             display: flex;

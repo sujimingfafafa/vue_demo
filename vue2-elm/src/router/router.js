@@ -7,9 +7,11 @@ const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'sho
 const shopDetail = r => require.ensure([], () => r(require('../page/shop/children/shopDetail')), 'shopDetail')
 const foodDetail = r => require.ensure([], () => r(require('../page/shop/children/foodDetail')), 'foodDetail')
 const shopSafe = r => require.ensure([], () => r(require('../page/shop/children/children/shopSafe')), 'shopSafe')
+const confirmOrder = r => require.ensure([], () => r(require('../page/confirmOrder/confirmOrder')), 'confirmOrder')
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'miste')
 const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
 const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
+
 
 // const info = r => require.ensure([], () => r(require('../page/profile/children/info')), 'info')
 // const setusername = r => require.ensure([], () => r(require('../page/profile/children/children/setusername')), 'setusername')
@@ -74,6 +76,11 @@ export default [{
 
             
         },
+        // 确认订单页
+        {
+            path: '/confirmOrder',
+            component: confirmOrder,
+        }
         // 个人信息
         // {
         //     path:"/profile",

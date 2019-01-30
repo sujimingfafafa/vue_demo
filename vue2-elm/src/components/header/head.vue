@@ -36,7 +36,7 @@
             console.log(this)
             //获取用户信息
             this.getUserInfo();
-          
+         
         },
        
         computed: {

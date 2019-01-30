@@ -70,7 +70,6 @@ export const getImgPath = {
 	methods: {
 		//传递过来的图片地址需要处理后才能正常使用
 		getImgPath(path) {
-			console.log(path)
 			let suffix;
 			if (!path) {
 				return '//elm.cangdu.org/img/default.jpg'
